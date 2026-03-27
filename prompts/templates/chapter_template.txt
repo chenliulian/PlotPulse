@@ -1,0 +1,17 @@
+# 第{chapter_num}章：{chapter_title}
+
+## 场景设定
+{setting}
+
+## 出场角色
+{characters}
+
+## 本章目标
+{objective}
+
+## 情节概要
+{summary}
+
+---
+
+{content}

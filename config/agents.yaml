@@ -1,0 +1,90 @@
+# Agent详细配置
+
+agents:
+  plot_agent:
+    name: "PlotDesigner"
+    description: "情节设计Agent"
+    system_prompt: "prompts/system/plot_design.txt"
+    parameters:
+      temperature: 0.8
+      max_tokens: 2000
+    output_format:
+      - summary
+      - conflict
+      - three_act_structure
+      - plot_points
+      - climax
+      - ending
+  
+  character_agent:
+    name: "CharacterDesigner"
+    description: "角色设计Agent"
+    system_prompt: "prompts/system/character_creation.txt"
+    parameters:
+      temperature: 0.7
+      max_tokens: 2500
+    output_format:
+      - basic_info
+      - personality
+      - background
+      - motivation
+      - conflict
+      - arc
+      - relationships
+  
+  worldbuilding_agent:
+    name: "WorldBuilder"
+    description: "世界观构建Agent"
+    system_prompt: "prompts/system/worldbuilding.txt"
+    parameters:
+      temperature: 0.7
+      max_tokens: 2500
+    output_format:
+      - overview
+      - geography
+      - society
+      - politics
+      - economy
+      - culture
+      - religion
+      - technology
+      - history
+  
+  writing_agent:
+    name: "NovelWriter"
+    description: "写作Agent"
+    system_prompt: "prompts/system/writing.txt"
+    parameters:
+      temperature: 0.9
+      max_tokens: 4000
+    templates:
+      chapter: "prompts/templates/chapter_template.txt"
+      dialogue: "prompts/templates/dialogue_template.txt"
+  
+  editing_agent:
+    name: "TextEditor"
+    description: "编辑Agent"
+    system_prompt: "prompts/system/editing.txt"
+    parameters:
+      temperature: 0.5
+      max_tokens: 4000
+    edit_types:
+      - polish
+      - grammar
+      - style
+      - structure
+  
+  reviewer_agent:
+    name: "ContentReviewer"
+    description: "审阅Agent"
+    parameters:
+      temperature: 0.3
+      max_tokens: 2000
+    review_aspects:
+      - plot
+      - character
+      - dialogue
+      - description
+      - pacing
+      - theme
+      - style

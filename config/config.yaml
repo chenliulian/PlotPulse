@@ -1,0 +1,60 @@
+# PlotPulse 主配置文件
+
+# 项目信息
+project:
+  name: "PlotPulse"
+  version: "0.1.0"
+  description: "AI小说创作框架"
+
+# 默认创作设置
+novel:
+  default_num_chapters: 10
+  default_chapter_length: 3000  # 每章字数
+  default_genre: "现代小说"
+  default_style: "写实主义"
+
+# 模型配置
+models:
+  default: "openai"
+  temperature: 0.7
+  max_tokens: 2000
+
+# Agent配置
+agents:
+  plot_agent:
+    temperature: 0.8
+    max_tokens: 1500
+  
+  character_agent:
+    temperature: 0.7
+    max_tokens: 2000
+  
+  worldbuilding_agent:
+    temperature: 0.7
+    max_tokens: 2000
+  
+  writing_agent:
+    temperature: 0.9
+    max_tokens: 3000
+  
+  editing_agent:
+    temperature: 0.5
+    max_tokens: 3000
+  
+  reviewer_agent:
+    temperature: 0.3
+    max_tokens: 1500
+
+# 输出配置
+output:
+  novels_dir: "novels/in_progress"
+  published_dir: "novels/published"
+  archived_dir: "novels/archived"
+  format: "markdown"
+
+# 日志配置
+logging:
+  level: "INFO"
+  file: "data/logs/plotpulse.log"
+  max_size: "10MB"
+  backup_count: 5

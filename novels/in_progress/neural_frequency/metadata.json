@@ -1,0 +1,18 @@
+{
+  "id": "neural_frequency_001",
+  "title": "神经频率",
+  "english_title": "Neural Frequency",
+  "theme": "科技伦理、人性觉醒、权力与控制",
+  "genre": "科幻/惊悚",
+  "style": "硬核科幻 + 心理惊悚",
+  "num_chapters": 18,
+  "created_at": "2024-03-26T22:30:00",
+  "status": "in_progress",
+  "outline_file": "albert_chip_outline.md",
+  "word_count_target": 120000,
+  "settings": {
+    "primary_location": "台湾新竹科学园区 TSMC",
+    "time_period": "近未来（202X年）",
+    "key_technology": "神经调制芯片(NMC)"
+  }
+}
