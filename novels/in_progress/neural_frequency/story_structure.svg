@@ -1,0 +1,383 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 2200" width="1400" height="2200">
+  <defs>
+    <!-- Gradients -->
+    <linearGradient id="protagonistGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#4facfe;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#00f2fe;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="antagonistGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#fa709a;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#fee140;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="supportGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#a8edea;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#fed6e3;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="tragicGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#667eea;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#764ba2;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="act1Grad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#ffecd2;stop-opacity:0.3" />
+      <stop offset="100%" style="stop-color:#fcb69f;stop-opacity:0.3" />
+    </linearGradient>
+    <linearGradient id="act2Grad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#a1c4fd;stop-opacity:0.3" />
+      <stop offset="100%" style="stop-color:#c2e9fb;stop-opacity:0.3" />
+    </linearGradient>
+    <linearGradient id="act3Grad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#d4fc79;stop-opacity:0.3" />
+      <stop offset="100%" style="stop-color:#96e6a1;stop-opacity:0.3" />
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="2" dy="2" stdDeviation="3" flood-opacity="0.3"/>
+    </filter>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1400" height="2200" fill="#f8f9fa"/>
+
+  <!-- Title -->
+  <text x="700" y="50" text-anchor="middle" font-family="Arial, sans-serif" font-size="32" font-weight="bold" fill="#2c3e50">《神经频率》Neural Frequency</text>
+  <text x="700" y="80" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="#7f8c8d">科技伦理 × 人性觉醒 × 权力与控制</text>
+
+  <!-- Act 1: Awakening (Chapters 1-6) -->
+  <rect x="50" y="100" width="1300" height="550" rx="15" fill="url(#act1Grad)" stroke="#e67e22" stroke-width="2"/>
+  <text x="700" y="140" text-anchor="middle" font-family="Arial, sans-serif" font-size="22" font-weight="bold" fill="#d35400">第一幕：觉醒 (第1-6章)</text>
+  <text x="700" y="165" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#7f8c8d">从庸才到天才的蜕变 · 芯片的秘密</text>
+
+  <!-- Chapter boxes Act 1 -->
+  <!-- Ch 1 -->
+  <rect x="80" y="190" width="200" height="80" rx="8" fill="white" stroke="#3498db" stroke-width="2" filter="url(#shadow)"/>
+  <text x="180" y="215" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#2c3e50">第1章：庸才的日常</text>
+  <text x="180" y="235" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#7f8c8d">陈昱衡 (Evan) - TSMC测试工程师</text>
+  <text x="180" y="250" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#7f8c8d">被David Lee职场霸凌</text>
+
+  <!-- Ch 2 -->
+  <rect x="320" y="190" width="200" height="80" rx="8" fill="white" stroke="#3498db" stroke-width="2" filter="url(#shadow)"/>
+  <text x="420" y="215" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#2c3e50">第2章：异常芯片</text>
+  <text x="420" y="235" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#7f8c8d">测试Prometheus-7芯片</text>
+  <text x="420" y="250" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#7f8c8d">芯片意外激活</text>
+
+  <!-- Ch 3 -->
+  <rect x="560" y="190" width="200" height="80" rx="8" fill="white" stroke="#3498db" stroke-width="2" filter="url(#shadow)"/>
+  <text x="660" y="215" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#2c3e50">第3章：开窍</text>
+  <text x="660" y="235" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#7f8c8d">大脑能力极速提升</text>
+  <text x="660" y="250" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#7f8c8d">技术会议一鸣惊人</text>
+
+  <!-- Ch 4 -->
+  <rect x="800" y="190" width="200" height="80" rx="8" fill="white" stroke="#3498db" stroke-width="2" filter="url(#shadow)"/>
+  <text x="900" y="215" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#2c3e50">第4章：副作用</text>
+  <text x="900" y="235" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#7f8c8d">失眠、情感淡漠</text>
+  <text x="900" y="250" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#7f8c8d">与妹妹Irene的隔阂</text>
+
+  <!-- Ch 5 -->
+  <rect x="1040" y="190" width="200" height="80" rx="8" fill="white" stroke="#3498db" stroke-width="2" filter="url(#shadow)"/>
+  <text x="1140" y="215" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#2c3e50">第5章：Sarah的怀疑</text>
+  <text x="1140" y="235" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#7f8c8d">Sarah Wu注意到异常</text>
+  <text x="1140" y="250" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#7f8c8d">开始暗中调查</text>
+
+  <!-- Ch 6 -->
+  <rect x="200" y="300" width="200" height="80" rx="8" fill="white" stroke="#e74c3c" stroke-width="2" filter="url(#shadow)"/>
+  <text x="300" y="325" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#2c3e50">第6章：军方介入</text>
+  <text x="300" y="345" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#7f8c8d">General Vance登场</text>
+  <text x="300" y="360" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#7f8c8d">Project Prometheus真相</text>
+
+  <!-- Ch 7 -->
+  <rect x="440" y="300" width="200" height="80" rx="8" fill="white" stroke="#e74c3c" stroke-width="2" filter="url(#shadow)"/>
+  <text x="540" y="325" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#2c3e50">第7章：逃亡开始</text>
+  <text x="540" y="345" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#7f8c8d">Ghost首次登场追杀</text>
+  <text x="540" y="360" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#7f8c8d">Albert被迫逃离TSMC</text>
+
+  <!-- Act 1 Arrow -->
+  <path d="M 300 380 L 300 420 L 1140 420 L 1140 270" fill="none" stroke="#e67e22" stroke-width="2" stroke-dasharray="5,5" marker-end="url(#arrowhead)"/>
+
+  <!-- Character Intro Act 1 -->
+  <rect x="80" y="420" width="380" height="200" rx="8" fill="white" stroke="#bdc3c7" stroke-width="1" filter="url(#shadow)"/>
+  <text x="270" y="445" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#2c3e50">角色登场</text>
+  
+  <!-- 陈昱衡 Evan -->
+  <circle cx="130" cy="480" r="25" fill="url(#protagonistGrad)"/>
+  <text x="130" y="485" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" font-weight="bold" fill="white">昱衡Evan</text>
+  <text x="130" y="520" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#2c3e50">主角/庸才→天才</text>
+
+  <!-- David -->
+  <circle cx="220" cy="480" r="20" fill="#95a5a6"/>
+  <text x="220" y="484" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" font-weight="bold" fill="white">David</text>
+  <text x="220" y="515" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#2c3e50">职场霸凌者</text>
+
+  <!-- Sarah -->
+  <circle cx="300" cy="480" r="25" fill="url(#supportGrad)"/>
+  <text x="300" y="485" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#2c3e50">Sarah</text>
+  <text x="300" y="520" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#2c3e50">女主角/天才</text>
+
+  <!-- Vance -->
+  <circle cx="390" cy="480" r="25" fill="url(#antagonistGrad)"/>
+  <text x="390" y="485" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="white">Vance</text>
+  <text x="390" y="520" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#2c3e50">大反派/将军</text>
+
+  <!-- Ghost -->
+  <circle cx="175" cy="560" r="25" fill="url(#tragicGrad)"/>
+  <text x="175" y="565" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="white">Ghost</text>
+  <text x="175" y="600" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#2c3e50">悲剧反派/杀手</text>
+
+  <!-- Irene -->
+  <circle cx="270" cy="560" r="20" fill="#f39c12"/>
+  <text x="270" y="564" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" font-weight="bold" fill="white">Irene</text>
+  <text x="270" y="595" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#2c3e50">妹妹/医学生</text>
+
+  <!-- Key Events Act 1 -->
+  <rect x="500" y="420" width="380" height="200" rx="8" fill="white" stroke="#bdc3c7" stroke-width="1" filter="url(#shadow)"/>
+  <text x="690" y="445" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#2c3e50">关键事件</text>
+  <text x="520" y="470" font-family="Arial, sans-serif" font-size="11" fill="#2c3e50">⚡ Prometheus-7芯片意外激活</text>
+  <text x="520" y="490" font-family="Arial, sans-serif" font-size="11" fill="#2c3e50">🧠 大脑能力指数级提升</text>
+  <text x="520" y="510" font-family="Arial, sans-serif" font-size="11" fill="#2c3e50">🔍 Sarah发现父亲研究笔记</text>
+  <text x="520" y="530" font-family="Arial, sans-serif" font-size="11" fill="#2c3e50">⚔️ Ghost首次追杀行动</text>
+  <text x="520" y="550" font-family="Arial, sans-serif" font-size="11" fill="#2c3e50">🏃 主角被迫开始逃亡</text>
+  <text x="520" y="570" font-family="Arial, sans-serif" font-size="11" fill="#2c3e50">💔 与妹妹关系疏远</text>
+  <text x="520" y="590" font-family="Arial, sans-serif" font-size="11" fill="#2c3e50">🔬 发现40.5Hz频率秘密</text>
+
+  <!-- Themes Act 1 -->
+  <rect x="920" y="420" width="380" height="200" rx="8" fill="white" stroke="#bdc3c7" stroke-width="1" filter="url(#shadow)"/>
+  <text x="1110" y="445" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#2c3e50">主题发展</text>
+  <text x="940" y="470" font-family="Arial, sans-serif" font-size="11" fill="#2c3e50">🔄 从"平凡"到"超凡"的转变</text>
+  <text x="940" y="490" font-family="Arial, sans-serif" font-size="11" fill="#2c3e50">⚖️ 科技进步的代价</text>
+  <text x="940" y="510" font-family="Arial, sans-serif" font-size="11" fill="#2c3e50">🏢 职场霸凌与权力压迫</text>
+  <text x="940" y="530" font-family="Arial, sans-serif" font-size="11" fill="#2c3e50">🎭 身份认同危机</text>
+  <text x="940" y="550" font-family="Arial, sans-serif" font-size="11" fill="#2c3e50">💪 能力觉醒的双刃剑</text>
+  <text x="940" y="570" font-family="Arial, sans-serif" font-size="11" fill="#2c3e50">🤝 信任与合作的建立</text>
+
+  <!-- Act 2: Confrontation (Chapters 8-13) -->
+  <rect x="50" y="680" width="1300" height="550" rx="15" fill="url(#act2Grad)" stroke="#3498db" stroke-width="2"/>
+  <text x="700" y="720" text-anchor="middle" font-family="Arial, sans-serif" font-size="22" font-weight="bold" fill="#2980b9">第二幕：对抗 (第8-13章)</text>
+  <text x="700" y="745" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#7f8c8d">猫鼠游戏 · 镜像对决 · 真相揭露</text>
+
+  <!-- Chapter boxes Act 2 -->
+  <!-- Ch 8 -->
+  <rect x="80" y="770" width="180" height="70" rx="8" fill="white" stroke="#9b59b6" stroke-width="2" filter="url(#shadow)"/>
+  <text x="170" y="795" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#2c3e50">第8章：地下基地</text>
+  <text x="170" y="815" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#7f8c8d">发现父亲秘密实验室</text>
+  <text x="170" y="828" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#7f8c8d">Sarah身世之谜</text>
+
+  <!-- Ch 9 -->
+  <rect x="300" y="770" width="180" height="70" rx="8" fill="white" stroke="#9b59b6" stroke-width="2" filter="url(#shadow)"/>
+  <text x="390" y="795" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#2c3e50">第9章：猫鼠游戏</text>
+  <text x="390" y="815" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#7f8c8d">与Ghost的智斗</text>
+  <text x="390" y="828" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#7f8c8d">利用电磁陷阱</text>
+
+  <!-- Ch 10 -->
+  <rect x="520" y="770" width="180" height="70" rx="8" fill="white" stroke="#9b59b6" stroke-width="2" filter="url(#shadow)"/>
+  <text x="610" y="795" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#2c3e50">第10章：NeuroFree</text>
+  <text x="610" y="815" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#7f8c8d">接触反抗组织</text>
+  <text x="610" y="828" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#7f8c8d">寻找盟友</text>
+
+  <!-- Ch 11 -->
+  <rect x="740" y="770" width="180" height="70" rx="8" fill="white" stroke="#9b59b6" stroke-width="2" filter="url(#shadow)"/>
+  <text x="830" y="795" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#2c3e50">第11章：人性边缘</text>
+  <text x="830" y="815" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#7f8c8d">Albert几近失控</text>
+  <text x="830" y="828" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#7f8c8d">Sarah的救赎</text>
+
+  <!-- Ch 12 -->
+  <rect x="960" y="770" width="180" height="70" rx="8" fill="white" stroke="#9b59b6" stroke-width="2" filter="url(#shadow)"/>
+  <text x="1050" y="795" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#2c3e50">第12章：全面追捕</text>
+  <text x="1050" y="815" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#7f8c8d">军方大规模搜捕</text>
+  <text x="1050" y="828" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#7f8c8d">NeuroFree基地暴露</text>
+
+  <!-- Ch 13 -->
+  <rect x="520" y="870" width="180" height="70" rx="8" fill="white" stroke="#e74c3c" stroke-width="3" filter="url(#shadow)"/>
+  <text x="610" y="895" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#c0392b">第13章：镜像对决</text>
+  <text x="610" y="915" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#7f8c8d">昱衡 vs Ghost 最终战</text>
+  <text x="610" y="928" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#7f8c8d">Ghost的解脱</text>
+
+  <!-- Character Arc Act 2 -->
+  <rect x="80" y="980" width="380" height="220" rx="8" fill="white" stroke="#bdc3c7" stroke-width="1" filter="url(#shadow)"/>
+  <text x="270" y="1005" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#2c3e50">角色弧光</text>
+  
+  <!-- 陈昱衡 Arc -->
+  <text x="100" y="1030" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#3498db">陈昱衡 (Evan):</text>
+  <text x="100" y="1048" font-family="Arial, sans-serif" font-size="10" fill="#2c3e50">• 从被动逃亡到主动对抗</text>
+  <text x="100" y="1063" font-family="Arial, sans-serif" font-size="10" fill="#2c3e50">• 学会控制芯片能力</text>
+  <text x="100" y="1078" font-family="Arial, sans-serif" font-size="10" fill="#2c3e50">• 在人性边缘挣扎</text>
+  
+  <!-- Sarah Arc -->
+  <text x="100" y="1100" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#e91e63">Sarah Wu:</text>
+  <text x="100" y="1118" font-family="Arial, sans-serif" font-size="10" fill="#2c3e50">• 发现父亲死亡真相</text>
+  <text x="100" y="1133" font-family="Arial, sans-serif" font-size="10" fill="#2c3e50">• 从调查者变为战士</text>
+  <text x="100" y="1148" font-family="Arial, sans-serif" font-size="10" fill="#2c3e50">• 成为Albert的锚点</text>
+
+  <!-- Ghost Arc -->
+  <text x="100" y="1170" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#673ab7">Ghost:</text>
+  <text x="100" y="1188" font-family="Arial, sans-serif" font-size="10" fill="#2c3e50">• 从冷酷杀手到悲剧英雄</text>
+  <text x="270" y="1188" font-family="Arial, sans-serif" font-size="10" fill="#c0392b">← 牺牲</text>
+
+  <!-- Key Events Act 2 -->
+  <rect x="500" y="980" width="380" height="220" rx="8" fill="white" stroke="#bdc3c7" stroke-width="1" filter="url(#shadow)"/>
+  <text x="690" y="1005" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#2c3e50">关键事件</text>
+  <text x="520" y="1030" font-family="Arial, sans-serif" font-size="11" fill="#2c3e50">🏢 发现地下秘密实验室</text>
+  <text x="520" y="1050" font-family="Arial, sans-serif" font-size="11" fill="#2c3e50">📖 Sarah父亲的研究笔记</text>
+  <text x="520" y="1070" font-family="Arial, sans-serif" font-size="11" fill="#2c3e50">⚡ 40.5Hz电磁脉冲陷阱</text>
+  <text x="520" y="1090" font-family="Arial, sans-serif" font-size="11" fill="#2c3e50">🤝 加入NeuroFree组织</text>
+  <text x="520" y="1110" font-family="Arial, sans-serif" font-size="11" fill="#2c3e50">💔 Albert人性危机</text>
+  <text x="520" y="1130" font-family="Arial, sans-serif" font-size="11" fill="#2c3e50">⚔️ 与Ghost的最终对决</text>
+  <text x="520" y="1150" font-family="Arial, sans-serif" font-size="11" fill="#2c3e50">🔥 Ghost的自我牺牲</text>
+  <text x="520" y="1170" font-family="Arial, sans-serif" font-size="11" fill="#2c3e50">💀 林志远的悲剧真相</text>
+
+  <!-- Themes Act 2 -->
+  <rect x="920" y="980" width="380" height="220" rx="8" fill="white" stroke="#bdc3c7" stroke-width="1" filter="url(#shadow)"/>
+  <text x="1110" y="1005" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#2c3e50">主题深化</text>
+  <text x="940" y="1030" font-family="Arial, sans-serif" font-size="11" fill="#2c3e50">🎭 镜像对照: 昱衡 vs Ghost</text>
+  <text x="940" y="1050" font-family="Arial, sans-serif" font-size="11" fill="#2c3e50">⛓️ 自由意志 vs 控制</text>
+  <text x="940" y="1070" font-family="Arial, sans-serif" font-size="11" fill="#2c3e50">❤️ 人性的脆弱与坚韧</text>
+  <text x="940" y="1090" font-family="Arial, sans-serif" font-size="11" fill="#2c3e50">👨‍👧 父女传承与真相追寻</text>
+  <text x="940" y="1110" font-family="Arial, sans-serif" font-size="11" fill="#2c3e50">⚖️ 牺牲与救赎</text>
+  <text x="940" y="1130" font-family="Arial, sans-serif" font-size="11" fill="#2c3e50">🏛️ 反抗极权统治</text>
+  <text x="940" y="1150" font-family="Arial, sans-serif" font-size="11" fill="#2c3e50">🧬 技术伦理的边界</text>
+
+  <!-- Act 3: Resolution (Chapters 14-18) -->
+  <rect x="50" y="1260" width="1300" height="550" rx="15" fill="url(#act3Grad)" stroke="#27ae60" stroke-width="2"/>
+  <text x="700" y="1300" text-anchor="middle" font-family="Arial, sans-serif" font-size="22" font-weight="bold" fill="#27ae60">第三幕：决战 (第14-18章)</text>
+  <text x="700" y="1325" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#7f8c8d">最终对决 · 真相大白 · 新的黎明</text>
+
+  <!-- Chapter boxes Act 3 -->
+  <!-- Ch 14 -->
+  <rect x="80" y="1350" width="180" height="70" rx="8" fill="white" stroke="#27ae60" stroke-width="2" filter="url(#shadow)"/>
+  <text x="170" y="1375" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#2c3e50">第14章：委员会</text>
+  <text x="170" y="1395" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#7f8c8d">揭露全球精英阴谋</text>
+  <text x="170" y="1408" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#7f8c8d">Vance的真实计划</text>
+
+  <!-- Ch 15 -->
+  <rect x="300" y="1350" width="180" height="70" rx="8" fill="white" stroke="#27ae60" stroke-width="2" filter="url(#shadow)"/>
+  <text x="390" y="1375" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#2c3e50">第15章：全球追捕</text>
+  <text x="390" y="1395" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#7f8c8d">跨越国界的逃亡</text>
+  <text x="390" y="1408" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#7f8c8d">NeuroFree成员牺牲</text>
+
+  <!-- Ch 16 -->
+  <rect x="520" y="1350" width="180" height="70" rx="8" fill="white" stroke="#27ae60" stroke-width="2" filter="url(#shadow)"/>
+  <text x="610" y="1375" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#2c3e50">第16章：建筑师</text>
+  <text x="610" y="1395" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#7f8c8d">幕后黑手现身</text>
+  <text x="610" y="1408" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#7f8c8d">真正的终极反派</text>
+
+  <!-- Ch 17 -->
+  <rect x="740" y="1350" width="180" height="70" rx="8" fill="white" stroke="#e74c3c" stroke-width="3" filter="url(#shadow)"/>
+  <text x="830" y="1375" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#c0392b">第17章：最终对决</text>
+  <text x="830" y="1395" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#7f8c8d">日内瓦最终决战</text>
+  <text x="830" y="1408" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#7f8c8d">昱衡 vs 建筑师</text>
+
+  <!-- Ch 18 -->
+  <rect x="960" y="1350" width="180" height="70" rx="8" fill="white" stroke="#f39c12" stroke-width="3" filter="url(#shadow)"/>
+  <text x="1050" y="1375" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#d68910">第18章：新的黎明</text>
+  <text x="1050" y="1395" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#7f8c8d">三个月后</text>
+  <text x="1050" y="1408" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#7f8c8d">建立新秩序</text>
+
+  <!-- Character Resolution Act 3 -->
+  <rect x="80" y="1560" width="380" height="220" rx="8" fill="white" stroke="#bdc3c7" stroke-width="1" filter="url(#shadow)"/>
+  <text x="270" y="1585" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#2c3e50">角色结局</text>
+  
+  <!-- 陈昱衡 End -->
+  <text x="100" y="1610" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#3498db">陈昱衡 (Evan):</text>
+  <text x="100" y="1628" font-family="Arial, sans-serif" font-size="10" fill="#2c3e50">• 从"庸才"到"守护者"</text>
+  <text x="100" y="1643" font-family="Arial, sans-serif" font-size="10" fill="#2c3e50">• 成为NeuroFree领导者</text>
+  <text x="100" y="1658" font-family="Arial, sans-serif" font-size="10" fill="#2c3e50">• 与妹妹重修旧好</text>
+  <text x="100" y="1673" font-family="Arial, sans-serif" font-size="10" fill="#2c3e50">• 学会平衡能力与人性</text>
+  
+  <!-- Sarah End -->
+  <text x="100" y="1695" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#e91e63">Sarah Wu:</text>
+  <text x="100" y="1713" font-family="Arial, sans-serif" font-size="10" fill="#2c3e50">• 为父亲正名</text>
+  <text x="100" y="1728" font-family="Arial, sans-serif" font-size="10" fill="#2c3e50">• 成为Albert的搭档</text>
+  <text x="100" y="1743" font-family="Arial, sans-serif" font-size="10" fill="#2c3e50">• 继续父亲的研究</text>
+
+  <!-- Vance End -->
+  <text x="100" y="1765" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#e74c3c">General Vance:</text>
+  <text x="100" y="1783" font-family="Arial, sans-serif" font-size="10" fill="#2c3e50">• 野心破灭</text>
+  <text x="220" y="1783" font-family="Arial, sans-serif" font-size="10" fill="#c0392b">← 失败</text>
+
+  <!-- Key Events Act 3 -->
+  <rect x="500" y="1560" width="380" height="220" rx="8" fill="white" stroke="#bdc3c7" stroke-width="1" filter="url(#shadow)"/>
+  <text x="690" y="1585" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#2c3e50">关键事件</text>
+  <text x="520" y="1610" font-family="Arial, sans-serif" font-size="11" fill="#2c3e50">🌍 揭露全球精英控制计划</text>
+  <text x="520" y="1630" font-family="Arial, sans-serif" font-size="11" fill="#2c3e50">🏛️ 委员会真面目曝光</text>
+  <text x="520" y="1650" font-family="Arial, sans-serif" font-size="11" fill="#2c3e50">✈️ 跨国逃亡与反击</text>
+  <text x="520" y="1670" font-family="Arial, sans-serif" font-size="11" fill="#2c3e50">👤 建筑师(幕后黑手)现身</text>
+  <text x="520" y="1690" font-family="Arial, sans-serif" font-size="11" fill="#2c3e50">⚔️ 日内瓦最终决战</text>
+  <text x="520" y="1710" font-family="Arial, sans-serif" font-size="11" fill="#2c3e50">💥 摧毁控制核心</text>
+  <text x="520" y="1730" font-family="Arial, sans-serif" font-size="11" fill="#2c3e50">🏗️ 建立国际监管组织</text>
+  <text x="520" y="1750" font-family="Arial, sans-serif" font-size="11" fill="#2c3e50">🌅 新的黎明</text>
+
+  <!-- Themes Act 3 -->
+  <rect x="920" y="1560" width="380" height="220" rx="8" fill="white" stroke="#bdc3c7" stroke-width="1" filter="url(#shadow)"/>
+  <text x="1110" y="1585" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#2c3e50">主题升华</text>
+  <text x="940" y="1610" font-family="Arial, sans-serif" font-size="11" fill="#2c3e50">✊ 自由意志的最终胜利</text>
+  <text x="940" y="1630" font-family="Arial, sans-serif" font-size="11" fill="#2c3e50">⚖️ 科技伦理的重要性</text>
+  <text x="940" y="1650" font-family="Arial, sans-serif" font-size="11" fill="#2c3e50">🤝 合作与信任的力量</text>
+  <text x="940" y="1670" font-family="Arial, sans-serif" font-size="11" fill="#2c3e50">🔄 从控制到守护的转变</text>
+  <text x="940" y="1690" font-family="Arial, sans-serif" font-size="11" fill="#2c3e50">🌟 平凡中的伟大</text>
+  <text x="940" y="1710" font-family="Arial, sans-serif" font-size="11" fill="#2c3e50">🔮 对未来的希望</text>
+  <text x="940" y="1730" font-family="Arial, sans-serif" font-size="11" fill="#2c3e50">💪 人性的力量超越技术</text>
+
+
+
+  <!-- Connection arrows between acts -->
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#7f8c8d"/>
+    </marker>
+  </defs>
+  
+  <!-- Vertical connections -->
+  <line x1="700" y1="650" x2="700" y2="680" stroke="#7f8c8d" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <line x1="700" y1="1230" x2="700" y2="1260" stroke="#7f8c8d" stroke-width="2" marker-end="url(#arrowhead)"/>
+
+  <!-- Central Theme -->
+  <rect x="500" y="1850" width="400" height="120" rx="10" fill="#2c3e50" filter="url(#shadow)"/>
+  <text x="700" y="1880" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="white">核心主题</text>
+  <text x="700" y="1905" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#ecf0f1">"技术应该为人类服务，而不是控制人类"</text>
+  <text x="700" y="1930" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#bdc3c7">陈昱衡：从 TSMC 庸才 → Prometheus 实验体 → 与 Ghost 战斗 → 与建筑师对决</text>
+  <text x="700" y="1950" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#bdc3c7">最终成为 NeuroFree 的守护者</text>
+
+  <!-- Legend -->
+  <rect x="50" y="2000" width="1300" height="180" rx="10" fill="white" stroke="#bdc3c7" stroke-width="1" filter="url(#shadow)"/>
+  <text x="700" y="2025" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#2c3e50">图例说明</text>
+  
+  <!-- Legend items -->
+  <circle cx="100" cy="2055" r="15" fill="url(#protagonistGrad)"/>
+  <text x="130" y="2060" font-family="Arial, sans-serif" font-size="11" fill="#2c3e50">主角 (昱衡Evan)</text>
+  
+  <circle cx="250" cy="2055" r="15" fill="url(#supportGrad)"/>
+  <text x="280" y="2060" font-family="Arial, sans-serif" font-size="11" fill="#2c3e50">女主角 (Sarah)</text>
+  
+  <circle cx="400" cy="2055" r="15" fill="url(#antagonistGrad)"/>
+  <text x="430" y="2060" font-family="Arial, sans-serif" font-size="11" fill="#2c3e50">主要反派 (Vance)</text>
+  
+  <circle cx="570" cy="2055" r="15" fill="url(#tragicGrad)"/>
+  <text x="600" y="2060" font-family="Arial, sans-serif" font-size="11" fill="#2c3e50">悲剧角色 (Ghost)</text>
+  
+  <circle cx="740" cy="2055" r="15" fill="#95a5a6"/>
+  <text x="770" y="2060" font-family="Arial, sans-serif" font-size="11" fill="#2c3e50">次要反派 (David)</text>
+  
+  <circle cx="900" cy="2055" r="15" fill="#f39c12"/>
+  <text x="930" y="2060" font-family="Arial, sans-serif" font-size="11" fill="#2c3e50">重要配角 (Irene)</text>
+
+  <!-- Color legend -->
+  <rect x="100" y="2085" width="20" height="15" fill="#ffecd2" stroke="#e67e22" stroke-width="1"/>
+  <text x="130" y="2097" font-family="Arial, sans-serif" font-size="10" fill="#2c3e50">第一幕：觉醒 (第1-7章)</text>
+  
+  <rect x="320" y="2085" width="20" height="15" fill="#c2e9fb" stroke="#3498db" stroke-width="1"/>
+  <text x="350" y="2097" font-family="Arial, sans-serif" font-size="10" fill="#2c3e50">第二幕：对抗 (第8-13章)</text>
+  
+  <rect x="540" y="2085" width="20" height="15" fill="#96e6a1" stroke="#27ae60" stroke-width="1"/>
+  <text x="570" y="2097" font-family="Arial, sans-serif" font-size="10" fill="#2c3e50">第三幕：决战 (第14-18章)</text>
+
+  <!-- Key symbols -->
+  <text x="800" y="2097" font-family="Arial, sans-serif" font-size="10" fill="#2c3e50">⚡ 关键转折点 | ⚔️ 战斗场景 | 💀 角色死亡 | 🏁 结局</text>
+
+  <!-- Footer -->
+  <text x="700" y="2150" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#7f8c8d">《神经频率》Neural Frequency - 18章科幻惊悚小说 | 类型：硬核科幻 + 心理惊悚</text>
+  <text x="700" y="2170" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#95a5a6">主题：科技伦理 · 人性觉醒 · 权力与控制 · 自由意志</text>
+</svg>
