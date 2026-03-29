@@ -39,10 +39,11 @@ class DashScopeModel(BaseModel):
         
         super().__init__(self.model_name, config)
         
-        # 创建 OpenAI 兼容客户端
+        # 创建 OpenAI 兼容客户端（增加超时时间）
         self.client = AsyncOpenAI(
             base_url=self.base_url,
-            api_key=self.api_key
+            api_key=self.api_key,
+            timeout=120.0  # 增加超时时间到120秒
         )
     
     async def generate(

@@ -1,0 +1,326 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" width="1200" height="900">
+  <defs>
+    <!-- 渐变定义 -->
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1a1a2e;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#16213e;stop-opacity:1" />
+    </linearGradient>
+    
+    <linearGradient id="stageGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#0f3460;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#16213e;stop-opacity:1" />
+    </linearGradient>
+    
+    <linearGradient id="agentGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#e94560;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#c73e54;stop-opacity:1" />
+    </linearGradient>
+    
+    <linearGradient id="humanGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#00d9ff;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#00a8cc;stop-opacity:1" />
+    </linearGradient>
+    
+    <linearGradient id="storybrainGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#7b2cbf;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#5a189a;stop-opacity:1" />
+    </linearGradient>
+    
+    <linearGradient id="arrowGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#00d9ff;stop-opacity:0.8" />
+      <stop offset="100%" style="stop-color:#e94560;stop-opacity:0.8" />
+    </linearGradient>
+    
+    <!-- 阴影滤镜 -->
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#000" flood-opacity="0.3"/>
+    </filter>
+    
+    <!-- 发光滤镜 -->
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- 背景 -->
+  <rect width="1200" height="900" fill="url(#bgGradient)"/>
+  
+  <!-- 网格背景 -->
+  <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+    <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#ffffff" stroke-width="0.5" opacity="0.03"/>
+  </pattern>
+  <rect width="1200" height="900" fill="url(#grid)"/>
+  
+  <!-- 标题 -->
+  <text x="600" y="45" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="28" font-weight="bold" fill="#fff" filter="url(#glow)">
+    增强版交互式小说创作流程
+  </text>
+  <text x="600" y="70" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="14" fill="#888">
+    Enhanced Interactive Novel Creation Pipeline with StoryBrain
+  </text>
+  
+  <!-- 图例 -->
+  <g transform="translate(50, 85)">
+    <rect width="20" height="20" rx="4" fill="url(#agentGradient)"/>
+    <text x="30" y="15" font-family="system-ui, -apple-system, sans-serif" font-size="12" fill="#ccc">AI Agent</text>
+    
+    <rect x="100" width="20" height="20" rx="4" fill="url(#humanGradient)"/>
+    <text x="130" y="15" font-family="system-ui, -apple-system, sans-serif" font-size="12" fill="#ccc">人类创作者</text>
+    
+    <rect x="230" width="20" height="20" rx="4" fill="url(#storybrainGradient)"/>
+    <text x="260" y="15" font-family="system-ui, -apple-system, sans-serif" font-size="12" fill="#ccc">StoryBrain</text>
+    
+    <rect x="360" width="20" height="20" rx="20" fill="url(#stageGradient)" stroke="#e94560" stroke-width="2"/>
+    <text x="390" y="15" font-family="system-ui, -apple-system, sans-serif" font-size="12" fill="#ccc">创作阶段</text>
+  </g>
+  
+  <!-- 主流程区域 -->
+  <g transform="translate(50, 130)">
+    
+    <!-- 阶段1: 项目初始化 -->
+    <g transform="translate(0, 0)">
+      <circle cx="60" cy="60" r="50" fill="url(#stageGradient)" stroke="#e94560" stroke-width="3" filter="url(#shadow)"/>
+      <text x="60" y="55" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="14" font-weight="bold" fill="#fff">阶段 1</text>
+      <text x="60" y="75" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="11" fill="#aaa">项目初始化</text>
+      
+      <!-- 人类输入 -->
+      <rect x="130" y="30" width="140" height="60" rx="8" fill="url(#humanGradient)" filter="url(#shadow)"/>
+      <text x="200" y="55" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="12" font-weight="bold" fill="#fff">人类输入</text>
+      <text x="200" y="72" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="10" fill="#fff" opacity="0.9">主题·类型·风格·章节数</text>
+      <text x="200" y="85" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="9" fill="#fff" opacity="0.7">create_project()</text>
+    </g>
+    
+    <!-- 箭头1 -->
+    <path d="M 280 60 L 320 60" stroke="url(#arrowGradient)" stroke-width="3" marker-end="url(#arrowhead)"/>
+    <defs>
+      <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+        <polygon points="0 0, 10 3, 0 6" fill="#00d9ff"/>
+      </marker>
+    </defs>
+    
+    <!-- 阶段2: 大纲生成 -->
+    <g transform="translate(330, 0)">
+      <circle cx="60" cy="60" r="50" fill="url(#stageGradient)" stroke="#e94560" stroke-width="3" filter="url(#shadow)"/>
+      <text x="60" y="55" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="14" font-weight="bold" fill="#fff">阶段 2</text>
+      <text x="60" y="75" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="11" fill="#aaa">大纲设计</text>
+      
+      <!-- PlotAgent -->
+      <rect x="130" y="10" width="120" height="45" rx="6" fill="url(#agentGradient)" filter="url(#shadow)"/>
+      <text x="190" y="30" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="12" font-weight="bold" fill="#fff">PlotAgent</text>
+      <text x="190" y="45" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="9" fill="#fff" opacity="0.8">生成整体大纲</text>
+      
+      <!-- 章节大纲 -->
+      <rect x="130" y="65" width="120" height="45" rx="6" fill="url(#agentGradient)" filter="url(#shadow)" opacity="0.9"/>
+      <text x="190" y="85" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="11" font-weight="bold" fill="#fff">章节大纲生成</text>
+      <text x="190" y="100" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="9" fill="#fff" opacity="0.8">10章详细规划</text>
+    </g>
+    
+    <!-- 人类审核节点 -->
+    <g transform="translate(580, 35)">
+      <rect width="100" height="50" rx="25" fill="url(#humanGradient)" filter="url(#shadow)"/>
+      <text x="50" y="22" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="11" font-weight="bold" fill="#fff">人类审核</text>
+      <text x="50" y="38" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="9" fill="#fff" opacity="0.9">批准/修改/拒绝</text>
+    </g>
+    
+    <!-- 反馈循环箭头 -->
+    <path d="M 630 35 Q 630 10 500 10 Q 400 10 400 35" stroke="#e94560" stroke-width="2" fill="none" stroke-dasharray="5,3" opacity="0.6"/>
+    <text x="500" y="8" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="9" fill="#e94560">需要修改时循环</text>
+    
+    <!-- 箭头2 -->
+    <path d="M 690 60 L 730 60" stroke="url(#arrowGradient)" stroke-width="3" marker-end="url(#arrowhead)"/>
+    
+    <!-- 阶段3: 角色设计 -->
+    <g transform="translate(740, 0)">
+      <circle cx="60" cy="60" r="50" fill="url(#stageGradient)" stroke="#e94560" stroke-width="3" filter="url(#shadow)"/>
+      <text x="60" y="55" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="14" font-weight="bold" fill="#fff">阶段 3</text>
+      <text x="60" y="75" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="11" fill="#aaa">角色设计</text>
+      
+      <!-- CharacterAgent -->
+      <rect x="130" y="30" width="120" height="60" rx="8" fill="url(#agentGradient)" filter="url(#shadow)"/>
+      <text x="190" y="55" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="12" font-weight="bold" fill="#fff">CharacterAgent</text>
+      <text x="190" y="72" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="10" fill="#fff" opacity="0.9">基于大纲生成角色</text>
+      <text x="190" y="85" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="9" fill="#fff" opacity="0.7">角色弧线·关系网</text>
+    </g>
+    
+    <!-- 第二行 -->
+    <!-- 阶段4: 世界观 -->
+    <g transform="translate(0, 160)">
+      <circle cx="60" cy="60" r="50" fill="url(#stageGradient)" stroke="#e94560" stroke-width="3" filter="url(#shadow)"/>
+      <text x="60" y="55" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="14" font-weight="bold" fill="#fff">阶段 4</text>
+      <text x="60" y="75" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="11" fill="#aaa">世界观构建</text>
+      
+      <!-- WorldbuildingAgent -->
+      <rect x="130" y="30" width="140" height="60" rx="8" fill="url(#agentGradient)" filter="url(#shadow)"/>
+      <text x="200" y="55" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="12" font-weight="bold" fill="#fff">WorldbuildingAgent</text>
+      <text x="200" y="72" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="10" fill="#fff" opacity="0.9">地理环境·社会结构</text>
+      <text x="200" y="85" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="9" fill="#fff" opacity="0.7">政治体系·经济系统</text>
+    </g>
+    
+    <!-- 箭头3 -->
+    <path d="M 280 220 L 320 220" stroke="url(#arrowGradient)" stroke-width="3" marker-end="url(#arrowhead)"/>
+    
+    <!-- StoryBrain 核心 -->
+    <g transform="translate(330, 160)">
+      <circle cx="60" cy="60" r="55" fill="url(#storybrainGradient)" stroke="#9d4edd" stroke-width="3" filter="url(#shadow)"/>
+      <text x="60" y="50" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="16" font-weight="bold" fill="#fff">🧠</text>
+      <text x="60" y="75" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="13" font-weight="bold" fill="#fff">StoryBrain</text>
+      
+      <!-- 功能标签 -->
+      <g transform="translate(130, 0)">
+        <rect width="110" height="28" rx="4" fill="#5a189a" stroke="#9d4edd" stroke-width="1"/>
+        <text x="55" y="19" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="10" fill="#fff">情节点追踪</text>
+      </g>
+      <g transform="translate(130, 35)">
+        <rect width="110" height="28" rx="4" fill="#5a189a" stroke="#9d4edd" stroke-width="1"/>
+        <text x="55" y="19" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="10" fill="#fff">伏笔管理</text>
+      </g>
+      <g transform="translate(130, 70)">
+        <rect width="110" height="28" rx="4" fill="#5a189a" stroke="#9d4edd" stroke-width="1"/>
+        <text x="55" y="19" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="10" fill="#fff">角色状态追踪</text>
+      </g>
+      <g transform="translate(130, 105)">
+        <rect width="110" height="28" rx="4" fill="#5a189a" stroke="#9d4edd" stroke-width="1"/>
+        <text x="55" y="19" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="10" fill="#fff">一致性检查</text>
+      </g>
+    </g>
+    
+    <!-- StoryBrain 连接线 -->
+    <path d="M 550 220 L 600 220" stroke="#9d4edd" stroke-width="2" marker-end="url(#arrowhead)"/>
+    
+    <!-- 阶段5: 章节创作 -->
+    <g transform="translate(610, 160)">
+      <circle cx="60" cy="60" r="50" fill="url(#stageGradient)" stroke="#e94560" stroke-width="3" filter="url(#shadow)"/>
+      <text x="60" y="55" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="14" font-weight="bold" fill="#fff">阶段 5</text>
+      <text x="60" y="75" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="11" fill="#aaa">章节创作</text>
+      
+      <!-- WritingAgent -->
+      <rect x="130" y="10" width="120" height="40" rx="6" fill="url(#agentGradient)" filter="url(#shadow)"/>
+      <text x="190" y="28" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="11" font-weight="bold" fill="#fff">WritingAgent</text>
+      <text x="190" y="42" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="9" fill="#fff" opacity="0.8">生成章节内容</text>
+      
+      <!-- EditingAgent -->
+      <rect x="130" y="60" width="120" height="40" rx="6" fill="url(#agentGradient)" filter="url(#shadow)" opacity="0.9"/>
+      <text x="190" y="78" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="11" font-weight="bold" fill="#fff">EditingAgent</text>
+      <text x="190" y="92" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="9" fill="#fff" opacity="0.8">润色与优化</text>
+    </g>
+    
+    <!-- 循环标记 -->
+    <g transform="translate(610, 270)">
+      <text x="60" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="10" fill="#888">逐章循环 (1→10章)</text>
+      <path d="M 20 15 Q 60 35 100 15" stroke="#e94560" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+    </g>
+    
+    <!-- 第三行 -->
+    <!-- 阶段6: 审阅 -->
+    <g transform="translate(0, 340)">
+      <circle cx="60" cy="60" r="50" fill="url(#stageGradient)" stroke="#e94560" stroke-width="3" filter="url(#shadow)"/>
+      <text x="60" y="55" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="14" font-weight="bold" fill="#fff">阶段 6</text>
+      <text x="60" y="75" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="11" fill="#aaa">最终审阅</text>
+      
+      <!-- ReviewerAgent -->
+      <rect x="130" y="30" width="120" height="60" rx="8" fill="url(#agentGradient)" filter="url(#shadow)"/>
+      <text x="190" y="55" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="12" font-weight="bold" fill="#fff">ReviewerAgent</text>
+      <text x="190" y="72" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="10" fill="#fff" opacity="0.9">质量评估·评分</text>
+      <text x="190" y="85" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="9" fill="#fff" opacity="0.7">改进建议</text>
+    </g>
+    
+    <!-- 箭头4 -->
+    <path d="M 280 400 L 320 400" stroke="url(#arrowGradient)" stroke-width="3" marker-end="url(#arrowhead)"/>
+    
+    <!-- 阶段7: 导出 -->
+    <g transform="translate(330, 340)">
+      <circle cx="60" cy="60" r="50" fill="url(#stageGradient)" stroke="#00d9ff" stroke-width="3" filter="url(#shadow)"/>
+      <text x="60" y="55" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="14" font-weight="bold" fill="#fff">阶段 7</text>
+      <text x="60" y="75" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="11" fill="#aaa">导出成品</text>
+      
+      <!-- 输出文件 -->
+      <g transform="translate(130, 10)">
+        <rect width="140" height="35" rx="4" fill="#0f3460" stroke="#00d9ff" stroke-width="1"/>
+        <text x="70" y="23" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="10" fill="#fff">📄 outline.md</text>
+      </g>
+      <g transform="translate(130, 52)">
+        <rect width="140" height="35" rx="4" fill="#0f3460" stroke="#00d9ff" stroke-width="1"/>
+        <text x="70" y="23" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="10" fill="#fff">👥 characters.md</text>
+      </g>
+      <g transform="translate(130, 94)">
+        <rect width="140" height="35" rx="4" fill="#0f3460" stroke="#00d9ff" stroke-width="1"/>
+        <text x="70" y="23" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="10" fill="#fff">🌍 world.md</text>
+      </g>
+    </g>
+    
+    <!-- 箭头5 -->
+    <path d="M 620 400 L 660 400" stroke="url(#arrowGradient)" stroke-width="3" marker-end="url(#arrowhead)"/>
+    
+    <!-- 完成状态 -->
+    <g transform="translate(670, 340)">
+      <circle cx="60" cy="60" r="55" fill="#00d9ff" opacity="0.2" filter="url(#glow)"/>
+      <circle cx="60" cy="60" r="50" fill="url(#stageGradient)" stroke="#00d9ff" stroke-width="3" filter="url(#shadow)"/>
+      <text x="60" y="55" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="24">✓</text>
+      <text x="60" y="80" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="14" font-weight="bold" fill="#fff">创作完成</text>
+      
+      <!-- 最终输出 -->
+      <g transform="translate(130, 30)">
+        <rect width="140" height="60" rx="8" fill="#0f3460" stroke="#00d9ff" stroke-width="2" filter="url(#shadow)"/>
+        <text x="70" y="25" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="11" font-weight="bold" fill="#00d9ff">📚 完整小说</text>
+        <text x="70" y="45" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="10" fill="#fff">novel_{id}.md</text>
+        <text x="70" y="60" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="9" fill="#aaa">+ StoryBrain报告</text>
+      </g>
+    </g>
+    
+    <!-- StoryBrain 连接虚线 -->
+    <path d="M 390 280 L 390 340" stroke="#9d4edd" stroke-width="2" stroke-dasharray="8,4" opacity="0.6"/>
+    <text x="400" y="315" font-family="system-ui, -apple-system, sans-serif" font-size="9" fill="#9d4edd">增强上下文</text>
+    
+    <!-- 数据流标注 -->
+    <g transform="translate(0, 460)">
+      <rect width="1100" height="140" rx="8" fill="#0a0a0f" stroke="#333" stroke-width="1"/>
+      <text x="20" y="25" font-family="system-ui, -apple-system, sans-serif" font-size="12" font-weight="bold" fill="#fff">数据流说明</text>
+      
+      <!-- 流程步骤 -->
+      <g transform="translate(20, 40)">
+        <text x="0" y="15" font-family="system-ui, -apple-system, sans-serif" font-size="10" fill="#888">1. Pipeline.create_project() → 初始化项目，接收人类输入</text>
+        <text x="0" y="35" font-family="system-ui, -apple-system, sans-serif" font-size="10" fill="#888">2. PlotAgent.execute() → 生成整体大纲 + 章节大纲（新增）</text>
+        <text x="0" y="55" font-family="system-ui, -apple-system, sans-serif" font-size="10" fill="#888">3. StoryBrainAdapter.integrate() → 初始化故事状态管理</text>
+        <text x="0" y="75" font-family="system-ui, -apple-system, sans-serif" font-size="10" fill="#888">4. 逐章创作循环 → WritingAgent + StoryBrain一致性检查</text>
+        <text x="0" y="95" font-family="system-ui, -apple-system, sans-serif" font-size="10" fill="#888">5. 保存进度 → _save_outline_to_file() 写入 outline.md</text>
+        
+        <text x="550" y="15" font-family="system-ui, -apple-system, sans-serif" font-size="10" fill="#00d9ff">人类反馈点: 大纲审核 → 角色审核 → 世界观审核 → 章节审核</text>
+        <text x="550" y="35" font-family="system-ui, -apple-system, sans-serif" font-size="10" fill="#e94560">Agent调用: Plot → Character → World → Writing → Editing → Review</text>
+        <text x="550" y="55" font-family="system-ui, -apple-system, sans-serif" font-size="10" fill="#9d4edd">StoryBrain功能: 情节点追踪 · 伏笔管理 · 角色弧线 · 一致性检查</text>
+        <text x="550" y="75" font-family="system-ui, -apple-system, sans-serif" font-size="10" fill="#888">输出文件: outline.md · characters.md · world.md · novel_{id}.md</text>
+      </g>
+    </g>
+    
+    <!-- 底部特性说明 -->
+    <g transform="translate(0, 620)">
+      <rect width="350" height="130" rx="8" fill="#0f3460" stroke="#e94560" stroke-width="1" opacity="0.3"/>
+      <text x="175" y="25" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="12" font-weight="bold" fill="#e94560">核心特性</text>
+      <text x="20" y="50" font-family="system-ui, -apple-system, sans-serif" font-size="10" fill="#ccc">✓ 人机协作 - 每阶段人类审核</text>
+      <text x="20" y="70" font-family="system-ui, -apple-system, sans-serif" font-size="10" fill="#ccc">✓ 迭代优化 - 支持多次修改</text>
+      <text x="20" y="90" font-family="system-ui, -apple-system, sans-serif" font-size="10" fill="#ccc">✓ 状态保存 - 随时中断继续</text>
+      <text x="20" y="110" font-family="system-ui, -apple-system, sans-serif" font-size="10" fill="#ccc">✓ 详细章节大纲 - 自动生成</text>
+    </g>
+    
+    <g transform="translate(375, 620)">
+      <rect width="350" height="130" rx="8" fill="#0f3460" stroke="#00d9ff" stroke-width="1" opacity="0.3"/>
+      <text x="175" y="25" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="12" font-weight="bold" fill="#00d9ff">StoryBrain增强</text>
+      <text x="20" y="50" font-family="system-ui, -apple-system, sans-serif" font-size="10" fill="#ccc">✓ 完整故事状态管理</text>
+      <text x="20" y="70" font-family="system-ui, -apple-system, sans-serif" font-size="10" fill="#ccc">✓ 角色状态自动追踪</text>
+      <text x="20" y="90" font-family="system-ui, -apple-system, sans-serif" font-size="10" fill="#ccc">✓ 情节点和伏笔管理</text>
+      <text x="20" y="110" font-family="system-ui, -apple-system, sans-serif" font-size="10" fill="#ccc">✓ 自动一致性检查</text>
+    </g>
+    
+    <g transform="translate(750, 620)">
+      <rect width="350" height="130" rx="8" fill="#0f3460" stroke="#9d4edd" stroke-width="1" opacity="0.3"/>
+      <text x="175" y="25" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="12" font-weight="bold" fill="#9d4edd">输出产物</text>
+      <text x="20" y="50" font-family="system-ui, -apple-system, sans-serif" font-size="10" fill="#ccc">📄 outline.md - 情节大纲+章节大纲</text>
+      <text x="20" y="70" font-family="system-ui, -apple-system, sans-serif" font-size="10" fill="#ccc">👥 characters.md - 角色设定</text>
+      <text x="20" y="90" font-family="system-ui, -apple-system, sans-serif" font-size="10" fill="#ccc">🌍 world.md - 世界观设定</text>
+      <text x="20" y="110" font-family="system-ui, -apple-system, sans-serif" font-size="10" fill="#ccc">📚 novel_{id}.md - 完整小说</text>
+    </g>
+  </g>
+</svg>

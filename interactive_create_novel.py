@@ -331,11 +331,26 @@ async def interactive_creation():
         except ValueError:
             print("⚠ 请输入有效的数字")
     
+    # 语言选择
+    print("\n🌐 请选择创作语言：")
+    print("  1. 中文")
+    print("  2. English")
+    while True:
+        lang_choice = input("请输入选项 (1/2) [1]: ").strip() or "1"
+        if lang_choice == "1":
+            language = "中文"
+            break
+        elif lang_choice == "2":
+            language = "English"
+            break
+        else:
+            print("⚠ 无效的选项，请重新选择")
+
     print("\n📝 其他创作要求（可选）：")
     outline_notes = input("  大纲设计提示: ").strip()
     character_notes = input("  角色设计提示: ").strip()
     world_notes = input("  世界观提示: ").strip()
-    
+
     human_input = {
         "outline_notes": outline_notes,
         "character_notes": character_notes,
@@ -353,9 +368,6 @@ async def interactive_creation():
         feedback_callback=get_human_feedback
     )
     
-    # 设置storage的base_dir
-    pipeline.storage.base_dir = Path("data")
-    
     # 设置全局变量以便保存进度
     _global_pipeline = pipeline
     
@@ -367,15 +379,17 @@ async def interactive_creation():
         genre=genre,
         style=style,
         num_chapters=num_chapters,
+        language=language,
         human_input=human_input
     )
-    
+
     # 设置全局novel_id
     _global_novel_id = novel_id
-    
+
     print(f"✅ 项目创建成功！ID: {novel_id}")
     print(f"\n📁 项目信息：")
     print(f"  标题: {title}")
+    print(f"  语言: {language}")
     print(f"  主题: {theme}")
     print(f"  类型: {genre}")
     print(f"  风格: {style}")

@@ -102,19 +102,19 @@ class InteractiveNovelPipeline:
     
     def _get_novel_dir(self) -> Path:
         """获取小说目录路径
-        
+
         如果缓存的目录不存在（例如从保存的进度恢复），则重新构建路径
         """
         if self._novel_dir is not None and self._novel_dir.exists():
             return self._novel_dir
-        
-        # 重新构建目录路径
-        if self.novel_id and self.novel_data.get("title"):
+
+        # 重新构建目录路径 - 使用小说标题作为目录名（不带ID后缀）
+        if self.novel_data.get("title"):
             safe_title = sanitize_filename(self.novel_data["title"])
-            self._novel_dir = self.output_dir / f"{safe_title}_{self.novel_id[:8]}"
+            self._novel_dir = self.output_dir / safe_title
             return self._novel_dir
-        
-        # 回退到旧格式
+
+        # 回退到使用ID
         return self.output_dir / f"novel_{self.novel_id}"
     
     def _default_feedback_callback(self, step: CreationStep) -> HumanFeedback:
@@ -128,24 +128,26 @@ class InteractiveNovelPipeline:
         genre: str = "",
         style: str = "",
         num_chapters: int = 10,
+        language: str = "中文",
         human_input: Optional[Dict] = None
     ) -> str:
         """
         创建新小说项目
-        
+
         Args:
             title: 小说标题（人类可提供）
             theme: 主题（人类可提供）
             genre: 类型（人类可提供）
             style: 风格（人类可提供）
             num_chapters: 章节数
+            language: 创作语言（中文/英文）
             human_input: 人类的其他输入
         """
         import uuid
         from datetime import datetime
-        
+
         self.novel_id = str(uuid.uuid4())[:8]
-        
+
         # 如果人类提供了输入，优先使用
         self.novel_data = {
             "id": self.novel_id,
@@ -153,6 +155,7 @@ class InteractiveNovelPipeline:
             "theme": theme or "",
             "genre": genre or "",
             "style": style or "",
+            "language": language,  # 添加语言字段
             "num_chapters": num_chapters,
             "created_at": datetime.now().isoformat(),
             "status": "planning",
@@ -162,17 +165,17 @@ class InteractiveNovelPipeline:
             "world": None,
             "chapters": []
         }
-        
-        # 创建小说目录 - 使用小说名称命名
+
+        # 创建小说目录 - 使用小说名称命名（不带ID后缀）
         safe_title = sanitize_filename(title)
-        self._novel_dir = self.output_dir / f"{safe_title}_{self.novel_id[:8]}"
+        self._novel_dir = self.output_dir / safe_title
         self._novel_dir.mkdir(parents=True, exist_ok=True)
         (self._novel_dir / "chapters").mkdir(exist_ok=True)
         (self._novel_dir / "final").mkdir(exist_ok=True)
-        
+
         self.current_stage = CreationStage.INIT
         await self._save_progress()
-        
+
         return self.novel_id
     
     async def generate_outline_interactive(self) -> Dict:
@@ -196,6 +199,7 @@ class InteractiveNovelPipeline:
                 "theme": self.novel_data.get("theme", ""),
                 "genre": self.novel_data.get("genre", ""),
                 "style": self.novel_data.get("style", ""),
+                "num_chapters": self.novel_data.get("num_chapters", 10),
                 "human_notes": self.novel_data.get("human_input", {}).get("outline_notes", "")
             }
         )
@@ -507,6 +511,7 @@ class InteractiveNovelPipeline:
                     # 立即保存章节
                     self.creation_history.append(step)
                     self.novel_data["chapters"].append(step.agent_output)
+                    self.current_stage = CreationStage.WRITING
                     await self._save_chapter(chapter_num, step.agent_output)
                     await self._save_progress()
 
@@ -524,6 +529,7 @@ class InteractiveNovelPipeline:
         if skip_review:
             self.creation_history.append(step)
             self.novel_data["chapters"].append(step.agent_output)
+            self.current_stage = CreationStage.WRITING
             await self._save_chapter(chapter_num, step.agent_output)
             await self._save_progress()
 
@@ -707,19 +713,33 @@ class InteractiveNovelPipeline:
 
         # 添加章节大纲
         chapter_outlines = outline_data.get('chapter_outlines', [])
-        for i, ch in enumerate(chapter_outlines, 1):
-            if isinstance(ch, dict):
-                title = ch.get('title', '')
-                summary = ch.get('summary', '')
-                content += f"\n### 第{i}章{f' {title}' if title else ''}\n"
-                content += f"{summary}\n"
+        if chapter_outlines:
+            for i, ch in enumerate(chapter_outlines, 1):
+                if isinstance(ch, dict):
+                    title = ch.get('title', '')
+                    summary = ch.get('summary', '')
+                    scenes = ch.get('scenes', [])
+                    twist = ch.get('twist', '')
+                    hook = ch.get('hook', '')
+                    
+                    content += f"\n### 第{i}章{f' {title}' if title else ''}\n"
+                    if summary:
+                        content += f"\n**概要**：{summary}\n"
+                    if scenes:
+                        content += f"\n**场景**：{', '.join(scenes) if isinstance(scenes, list) else scenes}\n"
+                    if twist and twist != "无":
+                        content += f"\n**转折**：{twist}\n"
+                    if hook:
+                        content += f"\n**钩子**：{hook}\n"
+        else:
+            content += "\n（章节大纲待生成）\n"
 
-        self.storage.save_text(
-            "outline.md",
-            content,
-            str(novel_dir)
-        )
-        print(f"   📄 大纲已保存到: {novel_dir / 'outline.md'}")
+        # 直接保存文件，避免 storage 的相对路径问题
+        outline_path = novel_dir / "outline.md"
+        outline_path.parent.mkdir(parents=True, exist_ok=True)
+        with open(outline_path, 'w', encoding='utf-8') as f:
+            f.write(content)
+        print(f"   📄 大纲已保存到: {outline_path}")
 
     async def _save_characters_to_file(self, character_data: Dict):
         """保存角色设定为独立文件"""
@@ -754,12 +774,11 @@ class InteractiveNovelPipeline:
         content += f"- **姓名**：{antagonist.get('name', '未设定')}\n"
         content += f"- **角色定位**：{antagonist.get('role', 'antagonist')}\n"
 
-        self.storage.save_text(
-            "characters.md",
-            content,
-            str(novel_dir)
-        )
-        print(f"   📄 角色设定已保存到: {novel_dir / 'characters.md'}")
+        # 直接保存文件
+        characters_path = novel_dir / "characters.md"
+        with open(characters_path, 'w', encoding='utf-8') as f:
+            f.write(content)
+        print(f"   📄 角色设定已保存到: {characters_path}")
 
     async def _save_world_to_file(self, world_data: Dict):
         """保存世界观设定为独立文件"""
@@ -770,21 +789,21 @@ class InteractiveNovelPipeline:
 {world_data.get('world_description', '')}
 """
 
-        self.storage.save_text(
-            "world.md",
-            content,
-            str(novel_dir)
-        )
-        print(f"   📄 世界观设定已保存到: {novel_dir / 'world.md'}")
+        # 直接保存文件
+        world_path = novel_dir / "world.md"
+        with open(world_path, 'w', encoding='utf-8') as f:
+            f.write(content)
+        print(f"   📄 世界观设定已保存到: {world_path}")
 
     async def _save_progress(self):
         """保存创作进度"""
         novel_dir = self._get_novel_dir()
-        self.storage.save_json(
-            "metadata.json",
-            self.novel_data,
-            str(novel_dir.relative_to(self.storage.base_dir))
-        )
+        # 直接使用 novel_dir 作为基础路径，避免重复路径问题
+        metadata_path = novel_dir / "metadata.json"
+        metadata_path.parent.mkdir(parents=True, exist_ok=True)
+        with open(metadata_path, 'w', encoding='utf-8') as f:
+            import json
+            json.dump(self.novel_data, f, ensure_ascii=False, indent=2)
 
     async def _save_chapter(self, chapter_num: int, chapter_data: Dict):
         """保存章节文件"""
@@ -801,22 +820,27 @@ class InteractiveNovelPipeline:
                     if isinstance(ch_outline, dict):
                         chapter_title = ch_outline.get("title", "")
 
-        # 构建文件名：包含章节号和标题
+        # 构建文件名：第一章_标题.md 格式
+        chapter_prefix = f"第{chapter_num}章"
         if chapter_title:
             safe_title = sanitize_filename(chapter_title)
-            filename = f"chapter_{chapter_num:02d}_{safe_title}.md"
+            filename = f"{chapter_prefix}_{safe_title}.md"
         else:
-            filename = f"chapter_{chapter_num:02d}.md"
+            filename = f"{chapter_prefix}.md"
 
-        content = f"""# 第{chapter_num}章{f" {chapter_title}" if chapter_title else ""}
+        # 获取清理后的内容（移除编辑说明等）
+        raw_content = chapter_data.get('edited_content', chapter_data.get('content', ''))
+        cleaned_content = self._clean_chapter_content(raw_content)
 
-{chapter_data.get('edited_content', chapter_data['content'])}
+        content = f"""# {chapter_title if chapter_title else f"第{chapter_num}章"}
+
+{cleaned_content}
 """
-        self.storage.save_text(
-            filename,
-            content,
-            str(novel_dir / "chapters")
-        )
+        # 直接保存文件
+        chapter_path = novel_dir / "chapters" / filename
+        chapter_path.parent.mkdir(parents=True, exist_ok=True)
+        with open(chapter_path, 'w', encoding='utf-8') as f:
+            f.write(content)
 
     async def export_novel(self, format: str = "markdown") -> str:
         """导出完整小说"""
@@ -845,14 +869,67 @@ class InteractiveNovelPipeline:
             else:
                 full_content += f"## 第{chapter_num}章\n\n"
 
-            full_content += chapter.get("edited_content", chapter["content"])
+            # 使用清理后的内容
+            raw_content = chapter.get("edited_content", chapter.get("content", ""))
+            cleaned_content = self._clean_chapter_content(raw_content)
+            full_content += cleaned_content
             full_content += "\n\n"
 
-        # 保存完整版本
-        self.storage.save_text(
-            "full_novel.md",
-            full_content,
-            str(novel_dir / "final")
-        )
+        # 直接保存文件
+        final_path = novel_dir / "final" / "full_novel.md"
+        final_path.parent.mkdir(parents=True, exist_ok=True)
+        with open(final_path, 'w', encoding='utf-8') as f:
+            f.write(full_content)
 
         return str(novel_dir / "final" / "full_novel.md")
+
+    def _clean_chapter_content(self, content: str) -> str:
+        """清理章节内容，移除编辑说明和重复文本
+
+        移除的内容包括：
+        - "主要修改：" 及其后续内容
+        - "我来润色这段文本" 等编辑提示
+        - 重复的章节标题标记
+        """
+        import re
+
+        # 移除 "主要修改：" 及其后续内容（直到行尾或段落结束）
+        content = re.sub(r'主要修改[：:].*?(?=\n\n|\Z)', '', content, flags=re.DOTALL)
+
+        # 移除编辑提示语
+        edit_prompts = [
+            r'我来润色这段文本.*?(?=\n\n|\Z)',
+            r'润色后的文本[：:].*?(?=\n\n|\Z)',
+            r'以下是润色后的.*?(?=\n\n|\Z)',
+            r'以下是修改后的.*?(?=\n\n|\Z)',
+        ]
+        for pattern in edit_prompts:
+            content = re.sub(pattern, '', content, flags=re.DOTALL | re.IGNORECASE)
+
+        # 移除重复的章节标题（如 "# 第三章" 在正文开头重复出现）
+        lines = content.split('\n')
+        cleaned_lines = []
+        skip_next_empty = False
+
+        for i, line in enumerate(lines):
+            # 跳过编辑提示行
+            if any(keyword in line for keyword in ['主要修改', '润色', '修改后的文本']):
+                skip_next_empty = True
+                continue
+
+            # 如果上一行是编辑提示且当前行是空行，则跳过
+            if skip_next_empty and line.strip() == '':
+                skip_next_empty = False
+                continue
+
+            cleaned_lines.append(line)
+
+        content = '\n'.join(cleaned_lines)
+
+        # 清理多余的空行（连续3个及以上空行合并为2个）
+        content = re.sub(r'\n{4,}', '\n\n\n', content)
+
+        # 移除开头和结尾的空白
+        content = content.strip()
+
+        return content

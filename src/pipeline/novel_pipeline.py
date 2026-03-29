@@ -180,7 +180,15 @@ class NovelPipeline:
     async def _save_chapter(self, chapter_num: int, chapter_data: Dict):
         """保存章节文件"""
         novel_dir = self.output_dir / f"novel_{self.novel_id}"
-        filename = f"chapter_{chapter_num:02d}.md"
+        
+        # 构建文件名：第一章_标题.md 格式
+        chapter_prefix = f"第{chapter_num}章"
+        chapter_title = chapter_data.get('title', '')
+        if chapter_title:
+            safe_title = self._sanitize_filename(chapter_title)
+            filename = f"{chapter_prefix}_{safe_title}.md"
+        else:
+            filename = f"{chapter_prefix}.md"
         
         content = f"""# 第{chapter_num}章
 
@@ -191,6 +199,18 @@ class NovelPipeline:
             content,
             str(novel_dir / "chapters")
         )
+    
+    def _sanitize_filename(self, name: str) -> str:
+        """清理文件名，移除不安全字符"""
+        import re
+        # 替换不安全的字符
+        safe_name = re.sub(r'[<>:"/\\|?*]', '_', name)
+        # 移除前后空白
+        safe_name = safe_name.strip()
+        # 限制长度
+        if len(safe_name) > 50:
+            safe_name = safe_name[:50]
+        return safe_name
     
     async def export_novel(self, format: str = "markdown") -> str:
         """导出完整小说"""
